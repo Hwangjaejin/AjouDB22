@@ -75,7 +75,7 @@ public class RegisterActivity extends AppCompatActivity {
                             if(success)
                             {
                                 AlertDialog.Builder builder = new AlertDialog.Builder(RegisterActivity.this);
-                                dialog = builder.setMessage("사용할 수 있는 아이디입니다.")
+                                dialog = builder.setMessage("사용가능한 아이디입니다.")
                                         .setPositiveButton("확인",null)
                                         .create();
                                 dialog.show();
@@ -83,7 +83,7 @@ public class RegisterActivity extends AppCompatActivity {
                             }
                             else{
                                 AlertDialog.Builder builder = new AlertDialog.Builder(RegisterActivity.this);
-                                dialog = builder.setMessage("사용할 수 없는 아이디입니다.")
+                                dialog = builder.setMessage("이미 존재하는 아이디입니다.")
                                         .setNegativeButton("확인",null)
                                         .create();
                                 dialog.show();
