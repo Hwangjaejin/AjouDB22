@@ -1,5 +1,6 @@
 package com.example.jh.ajoudb22;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -14,7 +15,6 @@ import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.toolbox.Volley;
 
-import org.json.JSONException;
 import org.json.JSONObject;
 
 public class RegisterActivity extends AppCompatActivity {
@@ -57,7 +57,7 @@ public class RegisterActivity extends AppCompatActivity {
                 if(userID.equals(""))
                 {
                     AlertDialog.Builder builder = new AlertDialog.Builder(RegisterActivity.this);
-                    dialog = builder.setMessage("아이디는 빈 칸일 수 없습니다.")
+                    dialog = builder.setMessage("아이디를 입력해 주세요.")
                             .setPositiveButton("확인",null)
                             .create();
                     dialog.show();
@@ -80,6 +80,7 @@ public class RegisterActivity extends AppCompatActivity {
                                         .create();
                                 dialog.show();
                                 validate = true;
+                                idText.setEnabled(false);
                             }
                             else{
                                 AlertDialog.Builder builder = new AlertDialog.Builder(RegisterActivity.this);
@@ -114,16 +115,36 @@ public class RegisterActivity extends AppCompatActivity {
                 if(!validate)
                 {
                     AlertDialog.Builder builder = new AlertDialog.Builder(RegisterActivity.this);
-                    dialog = builder.setMessage("먼저 중복체크를 해주세요.")
+                    dialog = builder.setMessage("아이디 중복체크를 해주세요.")
                             .setNegativeButton("확인",null)
                             .create();
                     dialog.show();
                     return;
                 }
-                if(userID.equals("") || userPassword.equals("") || userMajor.equals("") || userEmail.equals("") || userSchool.equals(""))
+
+                if(userPassword.equals(""))
                 {
                     AlertDialog.Builder builder = new AlertDialog.Builder(RegisterActivity.this);
-                    dialog = builder.setMessage("빈 칸 없이 입력해주세요.")
+                    dialog = builder.setMessage("비밀번호를 입력해주세요.")
+                            .setNegativeButton("확인",null)
+                            .create();
+                    dialog.show();
+                    return;
+                }
+
+                else if(userEmail.equals(""))
+                {
+                    AlertDialog.Builder builder = new AlertDialog.Builder(RegisterActivity.this);
+                    dialog = builder.setMessage("이메일을 입력해주세요.")
+                            .setNegativeButton("확인",null)
+                            .create();
+                    dialog.show();
+                    return;
+                }
+                else if(userSchool.equals(""))
+                {
+                    AlertDialog.Builder builder = new AlertDialog.Builder(RegisterActivity.this);
+                    dialog = builder.setMessage("학교를 입력해주세요.")
                             .setNegativeButton("확인",null)
                             .create();
                     dialog.show();
@@ -142,11 +163,14 @@ public class RegisterActivity extends AppCompatActivity {
                             {
                                 AlertDialog.Builder builder = new AlertDialog.Builder(RegisterActivity.this);
                                 dialog = builder.setMessage("회원 등록에 성공했습니다.")
-                                        .setPositiveButton("확인",null)
+                                        .setPositiveButton("확인",new DialogInterface.OnClickListener(){
+                                            public void onClick(DialogInterface dialog, int i){
+                                                Intent intent = new Intent(RegisterActivity.this,LoginActivity.class);
+                                                RegisterActivity.this.startActivity(intent);
+                                            }
+                                        })
                                         .create();
                                 dialog.show();
-                                Intent intent = new Intent(RegisterActivity.this,MainActivity.class);
-                                RegisterActivity.this.startActivity(intent);
                             }
                             else{
                                 AlertDialog.Builder builder = new AlertDialog.Builder(RegisterActivity.this);

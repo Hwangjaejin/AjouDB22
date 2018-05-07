@@ -6,9 +6,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 
-public class MainActivity extends AppCompatActivity {
+public class LoginActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,8 +22,8 @@ public class MainActivity extends AppCompatActivity {
         registerButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent registerIntent = new Intent(MainActivity.this,RegisterActivity.class);
-                MainActivity.this.startActivity(registerIntent);
+                Intent registerIntent = new Intent(LoginActivity.this,RegisterActivity.class);
+                LoginActivity.this.startActivity(registerIntent);
             }
         });
 
