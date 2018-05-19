@@ -22,6 +22,6 @@ public class FirstActivity extends AppCompatActivity {
                 startActivity(intent);
                 finish();
             }
-        }, 3000);
+        },3000);
     }
 }

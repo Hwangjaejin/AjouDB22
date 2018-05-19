@@ -75,10 +75,9 @@
         android:layout_height="40dp"
         android:layout_marginStart="48dp"
         android:layout_marginTop="8dp"
-        android:background="@color/colorPrimaryDark"
+        android:background="#ffffff"
         android:text="로그인"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-        android:textColor="#ffffff"
         android:textSize="15dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/passwordText" />
@@ -97,6 +96,7 @@
 
     <Button
         android:id="@+id/find_idButton"
+        style="@style/Widget.AppCompat.Button.Borderless"
         android:layout_width="130dp"
         android:layout_height="40dp"
         android:layout_marginBottom="76dp"
@@ -107,6 +107,7 @@
 
     <Button
         android:id="@+id/find_pwButton"
+        style="@style/Widget.AppCompat.Button.Borderless"
         android:layout_width="130dp"
         android:layout_height="40dp"
         android:layout_marginBottom="76dp"

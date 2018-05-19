@@ -29,7 +29,7 @@ public class LoginActivity extends AppCompatActivity {
         final Button loginButton = (Button) findViewById(R.id.loginButton);
         final Button registerButton = (Button) findViewById(R.id.registerButton);
         final Button find_idButton = (Button) findViewById(R.id.find_idButton);
-        final Button finde_pwButton = (Button) findViewById(R.id.find_pwButton);
+        final Button find_pwButton = (Button) findViewById(R.id.find_pwButton);
 
         loginButton.setOnClickListener(new View.OnClickListener(){
 
@@ -88,6 +88,21 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
+        find_idButton.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                Intent intent = new Intent(LoginActivity.this,Find_id_Activity.class);
+                LoginActivity.this.startActivity(intent);
+            }
+        });
+
+        find_pwButton.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                Intent intent = new Intent(LoginActivity.this,Find_pw_Activity.class);
+                LoginActivity.this.startActivity(intent);
+            }
+        });
     }
 
 
