@@ -23,7 +23,8 @@
         <activity android:name=".TemporaryActivity" />
         <activity android:name=".RestaurantActivity" />
         <activity android:name=".Find_id_Activity" />
-        <activity android:name=".Find_pw_Activity"></activity>
+        <activity android:name=".Find_pw_Activity" />
+        <activity android:name=".IdActivity"></activity>
     </application>
 
 </manifest>
