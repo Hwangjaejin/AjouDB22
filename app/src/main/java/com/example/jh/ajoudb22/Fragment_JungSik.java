@@ -9,10 +9,10 @@ import android.view.ViewGroup;
 
 public class Fragment_JungSik extends Fragment {
 
-    public Fragment_JungSik(){
+    public static Fragment_JungSik newInstance() {
+        return new Fragment_JungSik();
 
     }
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {

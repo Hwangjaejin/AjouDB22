@@ -9,7 +9,8 @@ import android.view.ViewGroup;
 
 public class Fragment_Hamburger extends Fragment {
 
-    public Fragment_Hamburger(){
+    public static Fragment_Hamburger newInstance() {
+        return new Fragment_Hamburger();
 
     }
 

@@ -24,7 +24,6 @@
         <activity android:name=".RestaurantActivity" />
         <activity android:name=".Find_id_Activity" />
         <activity android:name=".Find_pw_Activity" />
-        <activity android:name=".IdActivity" />
         <activity android:name=".ListActivity"></activity>
     </application>
 

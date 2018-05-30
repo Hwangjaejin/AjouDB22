@@ -1,5 +1,6 @@
 package com.example.jh.ajoudb22;
 
+import android.content.Intent;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -8,6 +9,7 @@ import android.util.Log;
 import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
+import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.RatingBar;
@@ -45,7 +47,9 @@ public class RestaurantActivity extends AppCompatActivity {
     private ListView Listview_menu;
 
     private LinearLayout review_btn;
+    private LinearLayout rating_btn;
     private LinearLayout header_btn;
+    private Button map_btn;
 
     private int UserID=1;
     private int R_Number=1;
@@ -63,6 +67,11 @@ public class RestaurantActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_restaurant);
 
+        Intent intent=getIntent();
+        String s=intent.getStringExtra("Name");
+        Log.e("Name",s);
+        R_Number=Integer.parseInt(intent.getStringExtra("Number"));
+
         view=getLayoutInflater().inflate(R.layout.header,null,false);
 
         toolbar=(Toolbar) findViewById(R.id.toolbar);
@@ -76,7 +85,9 @@ public class RestaurantActivity extends AppCompatActivity {
         Listview_menu=(ListView) findViewById(R.id.listview_menu);
 
         review_btn=(LinearLayout)view.findViewById(R.id.review_btn);
+        rating_btn=(LinearLayout)view.findViewById(R.id.rating_btn);
         header_btn=(LinearLayout)view.findViewById(R.id.header_btn);
+        map_btn=(Button)view.findViewById(R.id.map_btn);
 
         Items=new ArrayList<>();
 
@@ -245,9 +256,31 @@ public class RestaurantActivity extends AppCompatActivity {
         review_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Intent intent=new Intent(this,ReviewActivity.class);
+                intent.putExtra("R_number",R_Number);
+                intent.putExtra("User_id",UserID);
+                startActivity(intent);
                 Log.d("touch","true");
             }
         });
+        rating_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(this,ReviewActivity.class);
+                intent.putExtra("R_number",R_Number);
+                intent.putExtra("User_id",UserID);
+                startActivity(intent);
+            }
+        });
+        map_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(this,MapActivity.class);
+                intent.putExtra("R_number",R_Number);
+                startActivity(intent);
+            }
+        });
+
         header_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

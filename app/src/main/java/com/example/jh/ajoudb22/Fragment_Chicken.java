@@ -9,11 +9,14 @@ import android.view.ViewGroup;
 
 public class Fragment_Chicken extends Fragment {
 
-    public Fragment_Chicken(){
+    public static Fragment_Chicken newInstance() {
+        return new Fragment_Chicken();
 
     }
 
-    @Override
+
+
+        @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment

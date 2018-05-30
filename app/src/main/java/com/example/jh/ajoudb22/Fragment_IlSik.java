@@ -9,7 +9,8 @@ import android.view.ViewGroup;
 
 public class Fragment_IlSik extends Fragment {
 
-    public Fragment_IlSik(){
+    public static Fragment_IlSik newInstance() {
+        return new Fragment_IlSik();
 
     }
 

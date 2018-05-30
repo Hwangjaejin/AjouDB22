@@ -9,7 +9,8 @@ import android.view.ViewGroup;
 
 public class Fragment_Yangsik extends Fragment {
 
-    public Fragment_Yangsik(){
+    public static Fragment_Yangsik newInstance() {
+        return new Fragment_Yangsik();
 
     }
 
