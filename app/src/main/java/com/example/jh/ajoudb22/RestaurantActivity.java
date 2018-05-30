@@ -256,7 +256,7 @@ public class RestaurantActivity extends AppCompatActivity {
         review_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent=new Intent(this,ReviewActivity.class);
+                Intent intent=new Intent(RestaurantActivity.this,ReviewActivity.class);
                 intent.putExtra("R_number",R_Number);
                 intent.putExtra("User_id",UserID);
                 startActivity(intent);
@@ -266,7 +266,7 @@ public class RestaurantActivity extends AppCompatActivity {
         rating_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent=new Intent(this,ReviewActivity.class);
+                Intent intent=new Intent(RestaurantActivity.this,ReviewActivity.class);
                 intent.putExtra("R_number",R_Number);
                 intent.putExtra("User_id",UserID);
                 startActivity(intent);
@@ -275,7 +275,7 @@ public class RestaurantActivity extends AppCompatActivity {
         map_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent=new Intent(this,MapActivity.class);
+                Intent intent=new Intent(RestaurantActivity.this,MapActivity.class);
                 intent.putExtra("R_number",R_Number);
                 startActivity(intent);
             }
