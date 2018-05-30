@@ -4,33 +4,97 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".TemporaryActivity">
+    tools:context=".TemporaryActivity"
+    tools:layout_editor_absoluteY="25dp">
 
-    <EditText
+    <TextView
         android:id="@+id/idText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="71dp"
-        android:layout_marginStart="72dp"
-        android:layout_marginTop="48dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
         android:ems="10"
         android:inputType="textPersonName"
         android:text="Name"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <EditText
-        android:id="@+id/passwordText"
+    <ImageButton
+        android:id="@+id/hanSik_Button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="387dp"
-        android:layout_marginEnd="71dp"
-        android:layout_marginStart="72dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Name"
+        android:layout_marginEnd="15dp"
+        android:layout_marginTop="96dp"
+
+        app:layout_constraintEnd_toStartOf="@+id/yangSik_Button"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/hansik" />
+
+    <ImageButton
+        android:id="@+id/yangSik_Button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/hanSik_Button"
+        app:layout_constraintTop_toTopOf="@+id/hanSik_Button"
+        app:srcCompat="@drawable/yangsik" />
+
+    <ImageButton
+        android:id="@+id/jungSik_Button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="15dp"
+        android:layout_marginTop="12dp"
+
+        app:layout_constraintEnd_toStartOf="@+id/ilSik_Button"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/hanSik_Button"
+        app:srcCompat="@drawable/jungsik" />
+
+    <ImageButton
+        android:id="@+id/ilSik_Button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/jungSik_Button"
+        app:layout_constraintTop_toBottomOf="@+id/yangSik_Button"
+        app:srcCompat="@drawable/ilsik" />
+
+    <ImageButton
+        android:id="@+id/chicken_Button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="27dp"
+        android:layout_marginEnd="15dp"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/hamburger_Button"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/chicken" />
+
+    <ImageButton
+        android:id="@+id/hamburger_Button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="27dp"
+
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toEndOf="@+id/chicken_Button"
+        app:srcCompat="@drawable/hamburger" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ajoutitle" />
+
 </android.support.constraint.ConstraintLayout>
