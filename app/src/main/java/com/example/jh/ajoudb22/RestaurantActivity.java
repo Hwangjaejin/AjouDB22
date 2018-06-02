@@ -61,7 +61,7 @@ public class RestaurantActivity extends AppCompatActivity {
     private String Address;
     private String Image;
     private String Latitude;
-    private String Longtitude;
+    private String Longitude;
 
     private ArrayList<MenuListitem> Items;
     private ListviewAdapter adapter;
@@ -141,7 +141,7 @@ public class RestaurantActivity extends AppCompatActivity {
                             Address=jsonRow.getString("Address");
                             Image=jsonRow.getString("ImageURL");
                             Latitude=jsonRow.getString("Latitude");
-                            Longtitude=jsonRow.getString("Longitude");
+                            Longitude=jsonRow.getString("Longitude");
 
                             Toolbar_Text.setText(R_Name);
                             R_Description_Text.setText(Description);
@@ -307,7 +307,7 @@ public class RestaurantActivity extends AppCompatActivity {
                 Intent intent=new Intent(RestaurantActivity.this,MapActivity.class);
                 intent.putExtra("R_number",R_Number);
                 intent.putExtra("Latitude",Latitude);
-                intent.putExtra("Longtitude",Longtitude);
+                intent.putExtra("Longitude",Longitude);
                 startActivity(intent);
             }
         });
