@@ -29,6 +29,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
+import static java.lang.Math.floor;
+
 
 public class Fragment_IlSik extends Fragment {
 
@@ -59,7 +61,13 @@ public class Fragment_IlSik extends Fragment {
                             Log.e("response",response.toString());
                             for(int i=0;i<jsonArray.length();i++){
                                 JSONObject jsonRow = jsonArray.getJSONObject(i);
-                                RestaurantListitem item=new RestaurantListitem(jsonRow.getString("Name"),jsonRow.getString("Number"),jsonRow.getString("ImageURL"));                                Items.add(item);
+
+                                String avg_rating=jsonRow.getString("avg");
+                                double avg_rating_number=Double.parseDouble(avg_rating);
+                                avg_rating_number=(floor(10*avg_rating_number))/10;
+
+                                RestaurantListitem item=new RestaurantListitem(jsonRow.getString("Name"),jsonRow.getString("Number"),jsonRow.getString("ImageURL"),Double.toString(avg_rating_number),jsonRow.getString("cnt"));
+                                Items.add(item);
                                 listView.setAdapter(adapter);
                             }
                         } catch (JSONException e) {

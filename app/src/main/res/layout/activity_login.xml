@@ -14,19 +14,18 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/food"
         app:srcCompat="@android:color/background_light" />
 
     <ImageView
         android:id="@+id/food"
         android:layout_width="413dp"
         android:layout_height="249dp"
-        app:layout_constraintBottom_toTopOf="@+id/imageView7"
+        android:layout_marginBottom="80dp"
+        android:scaleType="fitXY"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/food"
-        android:scaleType="fitXY"/>
+        app:srcCompat="@drawable/login_pic" />
 
     <EditText
         android:id="@+id/idText"
@@ -64,6 +63,7 @@
         android:padding="10dp"
         android:textColor="#ffffff"
         android:textColorHint="#ffffff"
+        app:layout_constraintBottom_toTopOf="@+id/loginButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/idText" />
@@ -73,12 +73,11 @@
         style="@android:style/Widget.DeviceDefault.Light.Button.Borderless.Small"
         android:layout_width="130dp"
         android:layout_height="40dp"
-        android:layout_marginStart="48dp"
-        android:layout_marginTop="8dp"
-        android:background="#ffffff"
+        android:layout_marginStart="60dp"
         android:text="로그인"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
         android:textSize="15dp"
+        app:layout_constraintBottom_toTopOf="@+id/find_idButton"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/passwordText" />
 
@@ -87,10 +86,10 @@
         style="@style/Widget.AppCompat.Button.Borderless"
         android:layout_width="130dp"
         android:layout_height="40dp"
-        android:layout_marginEnd="48dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginEnd="60dp"
         android:text="회원가입"
         android:textSize="15dp"
+        app:layout_constraintBottom_toTopOf="@+id/find_pwButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/passwordText" />
 
@@ -100,10 +99,11 @@
         android:layout_width="130dp"
         android:layout_height="40dp"
         android:layout_marginBottom="76dp"
-        android:layout_marginStart="48dp"
+        android:layout_marginStart="60dp"
         android:text="ID찾기"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/loginButton" />
 
     <Button
         android:id="@+id/find_pwButton"
@@ -111,9 +111,10 @@
         android:layout_width="130dp"
         android:layout_height="40dp"
         android:layout_marginBottom="76dp"
-        android:layout_marginEnd="48dp"
+        android:layout_marginEnd="64dp"
         android:text="비밀번호찾기"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/registerButton" />
 
 </android.support.constraint.ConstraintLayout>

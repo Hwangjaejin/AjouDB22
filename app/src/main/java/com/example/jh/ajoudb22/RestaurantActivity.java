@@ -288,6 +288,7 @@ public class RestaurantActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent=new Intent(RestaurantActivity.this,ReviewActivity.class);
                 intent.putExtra("R_number",R_Number);
+                intent.putExtra("Name", R_Name);
                 intent.putExtra("User_id",UserID);
                 startActivity(intent);
                 Log.d("touch","true");
@@ -298,6 +299,7 @@ public class RestaurantActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent=new Intent(RestaurantActivity.this,ReviewActivity.class);
                 intent.putExtra("R_number",R_Number);
+                intent.putExtra("Name", R_Name);
                 intent.putExtra("User_id",UserID);
                 startActivity(intent);
             }
