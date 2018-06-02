@@ -14,7 +14,6 @@ import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.toolbox.Volley;
 
-import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.io.BufferedReader;
@@ -39,43 +38,44 @@ public class LoginActivity extends AppCompatActivity {
         final Button find_idButton = (Button) findViewById(R.id.find_idButton);
         final Button find_pwButton = (Button) findViewById(R.id.find_pwButton);
 
-        loginButton.setOnClickListener(new View.OnClickListener() {
+        loginButton.setOnClickListener(new View.OnClickListener(){
 
             @Override
-            public void onClick(View view) {
+            public void onClick(View view){
                 final String userID = idText.getText().toString();
                 final String userPassword = passwordText.getText().toString();
 
                 Response.Listener<String> responseListener = new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
-                        try {
+                        try{
                             JSONObject jsonResponse = new JSONObject(response);
 
-                            boolean success = jsonResponse.getBoolean("success");
-                            if (success) {
+                            boolean success =jsonResponse.getBoolean("success");
+                            if(success){
                                 String userID = jsonResponse.getString("userID");
 
-                                Toast.makeText(getApplicationContext(), "로그인 성공!", Toast.LENGTH_LONG).show();
+                                Toast.makeText(getApplicationContext(),"로그인 성공!",Toast.LENGTH_LONG).show();
 
-                                Intent intent = new Intent(LoginActivity.this, TemporaryActivity.class);
-                                intent.putExtra("userID", userID);
+                                Intent intent = new Intent(LoginActivity.this,TemporaryActivity.class);
+                                intent.putExtra("userID",userID);
 
                                 LoginActivity.this.startActivity(intent);
 
-                            } else {
+                            }else{
                                 AlertDialog.Builder builder = new AlertDialog.Builder(LoginActivity.this);
                                 dialog = builder.setMessage("로그인 실패!")
-                                        .setNegativeButton("확인", null)
+                                        .setNegativeButton("확인",null)
                                         .create();
                                 dialog.show();
                             }
-                        } catch (Exception e) {
+                        }catch (Exception e)
+                        {
                             e.printStackTrace();
                         }
                     }
                 };
-                LoginRequest loginRequest = new LoginRequest(userID, userPassword, responseListener);
+                LoginRequest loginRequest = new LoginRequest(userID,userPassword,responseListener);
                 RequestQueue queue = Volley.newRequestQueue(LoginActivity.this);
                 queue.add(loginRequest);
             }
@@ -84,21 +84,21 @@ public class LoginActivity extends AppCompatActivity {
         registerButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent registerIntent = new Intent(LoginActivity.this, RegisterActivity.class);
+                Intent registerIntent = new Intent(LoginActivity.this,RegisterActivity.class);
                 LoginActivity.this.startActivity(registerIntent);
             }
         });
 
-        find_idButton.setOnClickListener(new View.OnClickListener() {
+        find_idButton.setOnClickListener(new View.OnClickListener(){
             @Override
-            public void onClick(View v) {
+            public void onClick(View v){
                 new LoginActivity.BackgroundTask().execute();
             }
         });
 
-        find_pwButton.setOnClickListener(new View.OnClickListener() {
+        find_pwButton.setOnClickListener(new View.OnClickListener(){
             @Override
-            public void onClick(View v) {
+            public void onClick(View v){
                 /*Intent intent = new Intent(LoginActivity.this,Find_pw_Activity.class);
                 LoginActivity.this.startActivity(intent);*/
                 new LoginActivity.BackgroundTask2().execute();
