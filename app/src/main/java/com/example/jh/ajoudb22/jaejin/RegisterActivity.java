@@ -1,4 +1,4 @@
-package com.example.jh.ajoudb22;
+package com.example.jh.ajoudb22.jaejin;
 
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -14,6 +14,7 @@ import android.widget.Spinner;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.toolbox.Volley;
+import com.example.jh.ajoudb22.R;
 
 import org.json.JSONObject;
 

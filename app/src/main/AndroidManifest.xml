@@ -11,19 +11,20 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme.NoActionBar">
-        <activity android:name=".FirstActivity">
+        <activity android:name=".jaejin.FirstActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".LoginActivity" />
-        <activity android:name=".RegisterActivity" />
+        <activity android:name=".jaejin.LoginActivity" />
+        <activity android:name=".jaejin.RegisterActivity" />
         <activity android:name=".TemporaryActivity" />
         <activity android:name=".RestaurantActivity" />
-        <activity android:name=".Find_id_Activity" />
-        <activity android:name=".Find_pw_Activity" > </activity>
+        <activity android:name=".jaejin.Find_id_Activity" />
+        <activity android:name=".jaejin.Find_pw_Activity" />
+        <activity android:name=".ListActivity"></activity>
     </application>
 
 </manifest>

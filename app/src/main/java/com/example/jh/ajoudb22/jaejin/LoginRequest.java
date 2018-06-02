@@ -1,4 +1,4 @@
-package com.example.jh.ajoudb22;
+package com.example.jh.ajoudb22.jaejin;
 
 import com.android.volley.Response;
 import com.android.volley.toolbox.StringRequest;

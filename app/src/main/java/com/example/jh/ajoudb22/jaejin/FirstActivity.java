@@ -1,9 +1,11 @@
-package com.example.jh.ajoudb22;
+package com.example.jh.ajoudb22.jaejin;
 
 import android.content.Intent;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+
+import com.example.jh.ajoudb22.R;
 
 public class FirstActivity extends AppCompatActivity {
 

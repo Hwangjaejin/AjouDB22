@@ -1,4 +1,4 @@
-package com.example.jh.ajoudb22;
+package com.example.jh.ajoudb22.jaejin;
 
 import android.content.Intent;
 import android.os.AsyncTask;
@@ -13,8 +13,9 @@ import android.widget.Toast;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.toolbox.Volley;
+import com.example.jh.ajoudb22.R;
+import com.example.jh.ajoudb22.TemporaryActivity;
 
-import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.io.BufferedReader;
