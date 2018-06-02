@@ -5,6 +5,8 @@ import android.os.AsyncTask;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
+import android.widget.TextView;
 
 import com.google.android.gms.maps.CameraUpdate;
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -31,18 +33,28 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
     private static float lon = 0;
     private static String r_name;
 
+    private Toolbar toolbar;
+    private TextView Toolbar_Text;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_map);
 
+        toolbar=(Toolbar) findViewById(R.id.toolbar);
+        Toolbar_Text=(TextView)findViewById(R.id.Toolbar_text);
         Intent intent = getIntent();
-        String resId = String.valueOf(intent.getIntExtra("R_number", 0)).toString();
+        r_name = intent.getStringExtra("Name");
         lat = Float.parseFloat(intent.getStringExtra("Latitude"));
         lon = Float.parseFloat(intent.getStringExtra("Longitude"));
-//        MapData task = new MapData();
-//        task.execute(resId);
-        //지연
+
+        Toolbar_Text.setText(r_name);
+
+        setSupportActionBar(toolbar);
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setDisplayShowCustomEnabled(true); //커스터마이징 하기 위해 필요
+        actionBar.setDisplayShowTitleEnabled(false);
+        actionBar.setDisplayHomeAsUpEnabled(true); // 뒤로가기 버튼, 디폴트로 true만 해도 백버튼이 생김
 
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
@@ -58,90 +70,4 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
         CameraUpdate zoom = CameraUpdateFactory.zoomTo(17);
         googleMap.animateCamera(zoom);
     }
-
-//    class MapData extends AsyncTask<String, Void, String> {
-//
-//        @Override
-//        protected void onPreExecute() {
-//            super.onPreExecute();
-//
-//        }
-//
-//        @Override
-//        protected void onPostExecute(String result) {
-//            super.onPostExecute(result);
-//            String temp;
-//            String str_lat;
-//            String str_lon;
-//
-//            try {
-//                JSONObject json = new JSONObject(result);
-//                temp = json.getString("response");
-//                JSONArray ary = new JSONArray(temp);
-//
-//                JSONObject js = ary.getJSONObject(0);
-//                r_name = js.getString("name");
-//                str_lat = js.getString("latitude");
-//                str_lon = js.getString("longitude");
-//
-//                lat = Float.parseFloat(str_lat);
-//                lon = Float.parseFloat(str_lon);
-//
-//            } catch (JSONException e) {
-//                e.printStackTrace();
-//            }
-//
-//        }
-//
-//        @Override
-//        protected String doInBackground(String... params) {
-//
-//            String R_Number = (String)params[0];
-//
-//            String serverURL = "http://jaejindb.cafe24.com/RestaurantMap.php"; // 주소
-//            String postParameters = "R_Number=" + R_Number;
-//
-//            try {
-//                URL url = new URL(serverURL);
-//                HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
-//
-//                httpURLConnection.setReadTimeout(1000);
-//                httpURLConnection.setConnectTimeout(1000);
-//                httpURLConnection.setRequestMethod("POST");
-//                httpURLConnection.connect();
-//
-//                OutputStream outputStream = httpURLConnection.getOutputStream();
-//                outputStream.write(postParameters.getBytes("UTF-8"));
-//                outputStream.flush();
-//                outputStream.close();
-//
-//                int responseStatusCode = httpURLConnection.getResponseCode();
-//
-//                InputStream inputStream;
-//                if(responseStatusCode == HttpURLConnection.HTTP_OK) {
-//                    inputStream = httpURLConnection.getInputStream();
-//                }
-//                else{
-//                    inputStream = httpURLConnection.getErrorStream();
-//                }
-//
-//                InputStreamReader inputStreamReader = new InputStreamReader(inputStream, "UTF-8");
-//                BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
-//
-//                StringBuilder sb = new StringBuilder();
-//                String line = null;
-//
-//                while((line = bufferedReader.readLine()) != null){
-//                    sb.append(line);
-//                }
-//
-//                bufferedReader.close();
-//                return sb.toString();
-//
-//            } catch (Exception e) {
-//
-//                return new String("Error: " + e.getMessage());
-//            }
-//        }
-//    }
 }
