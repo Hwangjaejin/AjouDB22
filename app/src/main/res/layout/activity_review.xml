@@ -9,13 +9,30 @@
     tools:context=".ReviewActivity"
     android:orientation="vertical">
 
+    <android.support.v7.widget.Toolbar
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorAccent">
+
+        <TextView
+            android:textStyle="bold"
+            android:id="@+id/Toolbar_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="-50dp"
+            android:gravity="center_horizontal" />
+
+    </android.support.v7.widget.Toolbar>
+
     <Button
         android:id="@+id/reviewButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_margin="5dp"
-        android:text="review register" />
+        android:text="리뷰 쓰기" />
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/mList"
