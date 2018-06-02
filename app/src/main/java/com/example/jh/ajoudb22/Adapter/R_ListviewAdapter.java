@@ -49,11 +49,15 @@ public class R_ListviewAdapter extends BaseAdapter{
 
         ImageView imageView=(ImageView)view.findViewById(R.id.R_list_Image);
         TextView name=(TextView)view.findViewById(R.id.r_name);
+        TextView rating=(TextView)view.findViewById(R.id.Rlist_rating_num);
+        TextView review_num=(TextView)view.findViewById(R.id.Rlist_review_num);
 
         AQuery aq=new AQuery(view);
 
         aq.id(imageView).image(R_Listitem.getImage());
         name.setText(R_Listitem.getName());
+        rating.setText(R_Listitem.getRating());
+        review_num.setText(R_Listitem.getReview_num());
 
         return view;
     }
