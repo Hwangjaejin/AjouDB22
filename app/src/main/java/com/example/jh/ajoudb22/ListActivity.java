@@ -3,6 +3,7 @@ package com.example.jh.ajoudb22;
 
 import android.app.Fragment;
 import android.content.Intent;
+import android.graphics.Color;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
@@ -33,7 +34,7 @@ public class ListActivity extends AppCompatActivity {
 
         tabLayout=(TabLayout)findViewById(R.id.typeTabLayout);
         tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
-
+        tabLayout.setSelectedTabIndicatorColor(Color.parseColor("#000000"));
 
         mViewPager=(ViewPager)findViewById(R.id.viewPager);
         mSelectionPageAdaptor=new SelectionPageAdaptor(getSupportFragmentManager());
