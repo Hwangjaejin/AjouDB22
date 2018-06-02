@@ -7,22 +7,23 @@ import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.MenuItem;
-import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.RatingBar;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
-import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.androidquery.AQuery;
+import com.example.jh.ajoudb22.Adapter.ListviewAdapter;
+import com.example.jh.ajoudb22.Item.MenuListitem;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -38,6 +39,7 @@ public class RestaurantActivity extends AppCompatActivity {
 
     private Toolbar toolbar;
     private TextView Toolbar_Text;
+    private ImageView R_Image;
     private TextView Review_Num_Text;
     private TextView Rating_num_Text;
     private RatingBar ratingBar;
@@ -57,25 +59,34 @@ public class RestaurantActivity extends AppCompatActivity {
     private String Phone_number;
     private String Description;
     private String Address;
+    private String Image;
+    private String Latitude;
+    private String Longtitude;
 
     private ArrayList<MenuListitem> Items;
     private ListviewAdapter adapter;
     View view;
+
+    private AQuery aq;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_restaurant);
 
+        UserID_Singleton singleton=UserID_Singleton.getInstance();
+        Log.e("UserID",singleton.getUserID());
+
         Intent intent=getIntent();
         String s=intent.getStringExtra("Name");
         Log.e("Name",s);
         R_Number=Integer.parseInt(intent.getStringExtra("Number"));
-
+        Log.e("Number",""+R_Number);
         view=getLayoutInflater().inflate(R.layout.header,null,false);
 
         toolbar=(Toolbar) findViewById(R.id.toolbar);
         Toolbar_Text=(TextView)findViewById(R.id.Toolbar_text);
+        R_Image=(ImageView)view.findViewById(R.id.R_Image);
         Review_Num_Text=(TextView)view.findViewById(R.id.review_num);
         Rating_num_Text=(TextView)view.findViewById(R.id.rating_num);
         ratingBar=(RatingBar)view.findViewById(R.id.ratingbar);
@@ -88,6 +99,8 @@ public class RestaurantActivity extends AppCompatActivity {
         rating_btn=(LinearLayout)view.findViewById(R.id.rating_btn);
         header_btn=(LinearLayout)view.findViewById(R.id.header_btn);
         map_btn=(Button)view.findViewById(R.id.map_btn);
+
+        aq=new AQuery(this);
 
         Items=new ArrayList<>();
 
@@ -120,15 +133,21 @@ public class RestaurantActivity extends AppCompatActivity {
                             JSONArray jsonArray=new JSONArray(response.toString());
                             JSONObject jsonRow = jsonArray.getJSONObject(0);
 
+                            Log.e("response",response.toString());
+
                             R_Name=jsonRow.getString("Name");
                             Phone_number=jsonRow.getString("Phone_number");
                             Description=jsonRow.getString("Description");
                             Address=jsonRow.getString("Address");
+                            Image=jsonRow.getString("ImageURL");
+                            Latitude=jsonRow.getString("Latitude");
+                            Longtitude=jsonRow.getString("Longitude");
 
                             Toolbar_Text.setText(R_Name);
                             R_Description_Text.setText(Description);
                             R_Phone_num_text.setText(Phone_number);
                             R_Address_text.setText(Address);
+                            aq.id(R_Image).image(Image);
 
                         } catch (JSONException e) {
                             e.printStackTrace();
@@ -215,13 +234,23 @@ public class RestaurantActivity extends AppCompatActivity {
                             JSONArray jsonArray=new JSONArray(response.toString());
                             JSONObject jsonRow = jsonArray.getJSONObject(0);
 
-                            String avg_rating=jsonRow.getString("avg");
-                            double avg_rating_number=Double.parseDouble(avg_rating);
-                            avg_rating_number=(floor(10*avg_rating_number))/10;
+                            Log.e("null?",response.toString());
 
-                            Review_Num_Text.setText(jsonRow.getString("cnt"));
-                            Rating_num_Text.setText(Double.toString(avg_rating_number));
-                            ratingBar.setRating(Float.parseFloat(jsonRow.getString("avg")));
+                            if ("0".equals(jsonRow.getString("cnt"))){
+                                Log.e("확인","if문 진입");
+                                Review_Num_Text.setText("0");
+                                Rating_num_Text.setText("0");
+                                ratingBar.setRating(0);
+                            }else{
+                                String avg_rating=jsonRow.getString("avg");
+                                double avg_rating_number=Double.parseDouble(avg_rating);
+                                avg_rating_number=(floor(10*avg_rating_number))/10;
+
+                                Review_Num_Text.setText(jsonRow.getString("cnt"));
+                                Rating_num_Text.setText(Double.toString(avg_rating_number));
+                                ratingBar.setRating(Float.parseFloat(jsonRow.getString("avg")));
+                            }
+
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
@@ -277,6 +306,8 @@ public class RestaurantActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent=new Intent(RestaurantActivity.this,MapActivity.class);
                 intent.putExtra("R_number",R_Number);
+                intent.putExtra("Latitude",Latitude);
+                intent.putExtra("Longtitude",Longtitude);
                 startActivity(intent);
             }
         });
