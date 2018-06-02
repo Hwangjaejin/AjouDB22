@@ -53,7 +53,7 @@ public class RestaurantActivity extends AppCompatActivity {
     private LinearLayout header_btn;
     private Button map_btn;
 
-    private int UserID=1;
+    private String UserID;
     private int R_Number=1;
     private String R_Name;
     private String Phone_number;
@@ -75,7 +75,7 @@ public class RestaurantActivity extends AppCompatActivity {
         setContentView(R.layout.activity_restaurant);
 
         UserID_Singleton singleton=UserID_Singleton.getInstance();
-        UserID=Integer.parseInt(singleton.getUserID());
+        UserID=singleton.getUserID();
         Log.e("UserID",singleton.getUserID());
 
         Intent intent=getIntent();
