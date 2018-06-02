@@ -18,6 +18,7 @@
             android:layout_height="match_parent">
 
             <ImageView
+                android:id="@+id/R_Image"
                 android:scaleType="fitXY"
                 android:background="@drawable/border"
                 android:src="@drawable/food"

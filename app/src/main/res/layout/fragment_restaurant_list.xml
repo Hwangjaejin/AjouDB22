@@ -3,11 +3,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <TextView
+    <ListView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:textSize="30dp"
-        android:textStyle="bold"
-        android:text="치킨 페이지" />
+        android:id="@+id/restaurant_listview" />
 
 </FrameLayout>

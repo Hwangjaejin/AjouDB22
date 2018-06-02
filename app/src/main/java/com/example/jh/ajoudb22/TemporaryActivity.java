@@ -33,37 +33,37 @@ public class TemporaryActivity extends AppCompatActivity {
         hanSik_Button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                callNextActivity(userID, "한식");
+                callNextActivity(userID, "0");
             }
         });
         yangSik_Button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                callNextActivity(userID, "양식");
+                callNextActivity(userID, "1");
             }
         });
         jungSik_Button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                callNextActivity(userID, "중식");
+                callNextActivity(userID, "2");
             }
         });
         ilSik_Button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                callNextActivity(userID, "일식");
+                callNextActivity(userID, "3");
             }
         });
         chicken_Button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                callNextActivity(userID, "치킨");
+                callNextActivity(userID, "4");
             }
         });
         hamburger_Button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                callNextActivity(userID, "햄버거");
+                callNextActivity(userID, "5");
             }
         });
     }
