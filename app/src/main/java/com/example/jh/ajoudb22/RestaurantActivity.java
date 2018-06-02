@@ -53,7 +53,7 @@ public class RestaurantActivity extends AppCompatActivity {
     private LinearLayout header_btn;
     private Button map_btn;
 
-    private int UserID=1;
+    private String UserID;
     private int R_Number=1;
     private String R_Name;
     private String Phone_number;
@@ -61,7 +61,7 @@ public class RestaurantActivity extends AppCompatActivity {
     private String Address;
     private String Image;
     private String Latitude;
-    private String Longtitude;
+    private String Longitude;
 
     private ArrayList<MenuListitem> Items;
     private ListviewAdapter adapter;
@@ -75,6 +75,7 @@ public class RestaurantActivity extends AppCompatActivity {
         setContentView(R.layout.activity_restaurant);
 
         UserID_Singleton singleton=UserID_Singleton.getInstance();
+        UserID=singleton.getUserID();
         Log.e("UserID",singleton.getUserID());
 
         Intent intent=getIntent();
@@ -141,7 +142,7 @@ public class RestaurantActivity extends AppCompatActivity {
                             Address=jsonRow.getString("Address");
                             Image=jsonRow.getString("ImageURL");
                             Latitude=jsonRow.getString("Latitude");
-                            Longtitude=jsonRow.getString("Longitude");
+                            Longitude=jsonRow.getString("Longitude");
 
                             Toolbar_Text.setText(R_Name);
                             R_Description_Text.setText(Description);
@@ -306,8 +307,9 @@ public class RestaurantActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent=new Intent(RestaurantActivity.this,MapActivity.class);
                 intent.putExtra("R_number",R_Number);
+                intent.putExtra("Name", R_Name);
                 intent.putExtra("Latitude",Latitude);
-                intent.putExtra("Longtitude",Longtitude);
+                intent.putExtra("Longitude",Longitude);
                 startActivity(intent);
             }
         });
