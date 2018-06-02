@@ -307,6 +307,7 @@ public class RestaurantActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent=new Intent(RestaurantActivity.this,MapActivity.class);
                 intent.putExtra("R_number",R_Number);
+                intent.putExtra("Name", R_Name);
                 intent.putExtra("Latitude",Latitude);
                 intent.putExtra("Longitude",Longitude);
                 startActivity(intent);
