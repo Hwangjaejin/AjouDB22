@@ -48,6 +48,7 @@
         </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/rating_btn"
             android:gravity="center_vertical|center_horizontal"
             android:layout_weight="1"
             android:orientation="vertical"
@@ -110,6 +111,11 @@
             android:layout_marginTop="10dp"
             android:text="주소"
             android:textStyle="bold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <Button
+            android:id="@+id/map_btn"
+            android:text="지도"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
         <TextView

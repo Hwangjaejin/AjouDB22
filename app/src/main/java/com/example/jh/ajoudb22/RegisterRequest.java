@@ -1,4 +1,4 @@
-package com.example.jh.ajoudb22.jaejin;
+package com.example.jh.ajoudb22;
 
 import java.util.HashMap;
 import java.util.Map;
