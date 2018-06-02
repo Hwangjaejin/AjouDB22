@@ -75,6 +75,7 @@ public class RestaurantActivity extends AppCompatActivity {
         setContentView(R.layout.activity_restaurant);
 
         UserID_Singleton singleton=UserID_Singleton.getInstance();
+        UserID=Integer.parseInt(singleton.getUserID());
         Log.e("UserID",singleton.getUserID());
 
         Intent intent=getIntent();
