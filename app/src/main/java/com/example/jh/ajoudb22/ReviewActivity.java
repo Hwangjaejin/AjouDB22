@@ -137,7 +137,7 @@ public class ReviewActivity extends AppCompatActivity {
                     } else {
 
                     }
-                    data.add(new ReviewContent(js.getString("R_id" + " 님"), Float.parseFloat(js.getString("Score")), js.getString("Date"), js.getString("Text")));
+                    data.add(new ReviewContent(js.getString("R_id") + " 님", Float.parseFloat(js.getString("Score")), js.getString("Date"), js.getString("Text")));
                 }
 
                 // init Adapter
