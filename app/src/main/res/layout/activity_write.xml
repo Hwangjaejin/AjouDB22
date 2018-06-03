@@ -7,10 +7,29 @@
     tools:context=".WriteActivity"
     android:orientation="vertical">
 
+
+    <android.support.v7.widget.Toolbar
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#FFE3A6">
+
+        <TextView
+            android:textStyle="bold"
+            android:id="@+id/Toolbar_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="-50dp"
+            android:gravity="center_horizontal" />
+
+    </android.support.v7.widget.Toolbar>
+
     <LinearLayout
         android:id="@+id/ScoreLayout1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_below="@id/toolbar"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginTop="16dp"
@@ -48,6 +67,7 @@
         <RatingBar
             android:id="@+id/reviewRating"
             style="?android:attr/ratingBarStyle"
+            android:theme="@style/MyRatingBar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:isIndicator="false"

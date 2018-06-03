@@ -9,6 +9,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -59,6 +60,12 @@ public class ReviewActivity extends AppCompatActivity {
         R_number = String.valueOf(R_num);
         Toolbar_Text.setText(R_name);
 
+        setSupportActionBar(toolbar);
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setDisplayShowCustomEnabled(true); //커스터마이징 하기 위해 필요
+        actionBar.setDisplayShowTitleEnabled(false);
+        actionBar.setDisplayHomeAsUpEnabled(true); // 뒤로가기 버튼, 디폴트로 true만 해도 백버튼이 생김
+
     }
 
     @Override
@@ -78,12 +85,6 @@ public class ReviewActivity extends AppCompatActivity {
         // setLayoutManager
         mReviewView.setLayoutManager(mLayoutManager);
 
-        setSupportActionBar(toolbar);
-        ActionBar actionBar = getSupportActionBar();
-        actionBar.setDisplayShowCustomEnabled(true); //커스터마이징 하기 위해 필요
-        actionBar.setDisplayShowTitleEnabled(false);
-        actionBar.setDisplayHomeAsUpEnabled(true); // 뒤로가기 버튼, 디폴트로 true만 해도 백버튼이 생김
-
         findViewById(R.id.reviewButton).setOnClickListener(
                 new Button.OnClickListener() {
                     public void onClick(View v) {
@@ -98,6 +99,17 @@ public class ReviewActivity extends AppCompatActivity {
                     }
                 }
         );
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()){
+            case android.R.id.home:{
+                finish();
+                return true;
+            }
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     class ReviewData extends AsyncTask<String, Void, String> {
@@ -245,6 +257,5 @@ class ReviewViewHolder extends RecyclerView.ViewHolder {
         date = reviewView.findViewById(R.id.mDate);
         rating = reviewView.findViewById(R.id.ratingBar);
         review = reviewView.findViewById(R.id.mReview);
-
     }
 }

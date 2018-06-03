@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -14,7 +14,7 @@
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/colorAccent">
+        android:background="#FFE3A6">
 
         <TextView
             android:textStyle="bold"
@@ -26,19 +26,22 @@
 
     </android.support.v7.widget.Toolbar>
 
-    <Button
-        android:id="@+id/reviewButton"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_margin="5dp"
-        android:text="리뷰 쓰기" />
-
     <android.support.v7.widget.RecyclerView
         android:id="@+id/mList"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/reviewButton"
+        android:layout_below="@id/toolbar"
+        android:layout_above="@id/reviewButton"
         />
 
-</LinearLayout>
+    <Button
+        android:id="@+id/reviewButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="5dp"
+        android:padding="20dp"
+        android:text="리뷰 쓰기" />
+
+
+</RelativeLayout>

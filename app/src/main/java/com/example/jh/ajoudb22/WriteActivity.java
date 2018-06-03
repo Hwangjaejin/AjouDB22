@@ -5,6 +5,8 @@ import android.os.AsyncTask;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -12,7 +14,6 @@ import android.widget.RatingBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -27,6 +28,8 @@ import java.util.Date;
 
 public class WriteActivity extends AppCompatActivity {
 
+    private Toolbar toolbar;
+    private TextView Toolbar_Text;
     TextView tv;
     TextView rt;
     RatingBar rb;
@@ -46,11 +49,19 @@ public class WriteActivity extends AppCompatActivity {
         Intent intent = getIntent();
         R_id = intent.getStringExtra("R_id");
         R_number = intent.getStringExtra("R_number");
-
+        toolbar=(Toolbar) findViewById(R.id.toolbar);
+        Toolbar_Text=(TextView)findViewById(R.id.Toolbar_text);
         tv = (TextView) findViewById(R.id.mScoreText);
         rt = (TextView) findViewById(R.id.mRatingScore);
         rb = (RatingBar) findViewById(R.id.reviewRating);
         et = (EditText) findViewById(R.id.et);
+
+        setSupportActionBar(toolbar);
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setDisplayShowCustomEnabled(true); //커스터마이징 하기 위해 필요
+        actionBar.setDisplayShowTitleEnabled(false);
+        actionBar.setDisplayHomeAsUpEnabled(true); // 뒤로가기 버튼, 디폴트로 true만 해도 백버튼이 생김
+        //actionBar.setHomeAsUpIndicator(R.drawable.button_back);
 
         rb.setOnRatingBarChangeListener(new RatingBar.OnRatingBarChangeListener() {
             @Override
@@ -156,5 +167,16 @@ public class WriteActivity extends AppCompatActivity {
                 return new String("Error: " + e.getMessage());
             }
         }
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()){
+            case android.R.id.home:{
+                finish();
+                return true;
+            }
+        }
+        return super.onOptionsItemSelected(item);
     }
 }
