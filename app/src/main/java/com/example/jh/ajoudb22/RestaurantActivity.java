@@ -54,7 +54,7 @@ public class RestaurantActivity extends AppCompatActivity {
     private LinearLayout review_btn;
     private LinearLayout rating_btn;
     private LinearLayout header_btn;
-    private Button map_btn;
+    private ImageView map_btn;
 
     private String UserID;
     private int R_Number=1;
@@ -102,7 +102,7 @@ public class RestaurantActivity extends AppCompatActivity {
         review_btn=(LinearLayout)view.findViewById(R.id.review_btn);
         rating_btn=(LinearLayout)view.findViewById(R.id.rating_btn);
         header_btn=(LinearLayout)view.findViewById(R.id.header_btn);
-        map_btn=(Button)view.findViewById(R.id.map_btn);
+        map_btn=(ImageView) view.findViewById(R.id.map_btn);
 
         aq=new AQuery(this);
 
