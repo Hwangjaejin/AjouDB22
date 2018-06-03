@@ -27,9 +27,6 @@ public class TemporaryActivity extends AppCompatActivity {
 
         final String userID = intent.getStringExtra("userID");
 
-        TextView idText = (TextView) findViewById(R.id.idText);
-        idText.setText(userID + "님");
-
         hanSik_Button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

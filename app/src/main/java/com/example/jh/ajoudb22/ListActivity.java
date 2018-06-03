@@ -43,9 +43,6 @@ public class ListActivity extends AppCompatActivity {
         tabLayout.setupWithViewPager(mViewPager);
 
         mViewPager.setCurrentItem(Integer.parseInt(tab_id));
-
-        TextView idText = (TextView) findViewById(R.id.idText);
-        idText.setText(userID + "님");
     }
 }
 
