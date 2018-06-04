@@ -72,11 +72,19 @@ public class RestaurantActivity extends AppCompatActivity {
 
     private AQuery aq;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_restaurant);
 
+    }
+
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        setContentView(R.layout.activity_restaurant);
         UserID_Singleton singleton=UserID_Singleton.getInstance();
         UserID=singleton.getUserID();
         Log.e("UserID",singleton.getUserID());
@@ -229,8 +237,6 @@ public class RestaurantActivity extends AppCompatActivity {
         };
         queue.add(strRequest2);
 
-
-
         StringRequest strRequest3 = new StringRequest(Request.Method.POST, url3,
                 new Response.Listener<String>()
                 {
@@ -287,8 +293,6 @@ public class RestaurantActivity extends AppCompatActivity {
         };
         queue.add(strRequest3);
 
-
-
         review_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -328,8 +332,6 @@ public class RestaurantActivity extends AppCompatActivity {
 
             }
         });
-
-
     }
 
     @Override
